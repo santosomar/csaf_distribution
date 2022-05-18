@@ -820,6 +820,7 @@ func (p *processor) locateProviderMetadata(
 			if _, err = tryURL(loc); err == errContinue {
 				err = nil
 			}
+			log.Printf("%s in /.well-known/security.txt did not work out", loc)
 			return err
 		}
 	}
