@@ -11,6 +11,7 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strings"
 )
 
 type (
@@ -84,7 +85,7 @@ func (r *redirectsReporter) report(p *processor, domain *Domain) {
 	}
 	sort.Strings(keys)
 	for i, k := range keys {
-		keys[i] = fmt.Sprintf("Redirect %s: %s", k, p.redirects[k])
+		keys[i] = fmt.Sprintf("Redirect %s to %s", k, strings.ReplaceAll(p.redirects[k], ",", ", then to ")
 	}
 	req.message(WarnType, keys...)
 }
