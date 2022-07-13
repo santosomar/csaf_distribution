@@ -85,7 +85,7 @@ func (r *redirectsReporter) report(p *processor, domain *Domain) {
 	}
 	sort.Strings(keys)
 	for i, k := range keys {
-		keys[i] = fmt.Sprintf("Redirect %s to %s", strings.ReplaceAll(p.redirects[k], ",", ", to "), k)
+		keys[i] = fmt.Sprintf("Redirect %s to %s", strings.ReplaceAll(p.redirects[k], ",", " to "), k)
 	}
 	req.message(WarnType, keys...)
 }
